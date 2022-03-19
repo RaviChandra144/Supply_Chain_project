@@ -1,0 +1,24 @@
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+chaindata <- read.csv("./DataCoSupplyChainDataset.csv", head=TRUE)
+chaindata <- subset(chaindata, select = -c(Customer.Email, Customer.Password, Order.Zipcode, Product.Description, Product.Image))
+```
+##STEP1: Filter the data
+Filtered data by removing customer email and passwords as they are not any useful for data.
+Also removed few data regarding the zipcode as 85% of the zipcodes are NA. Removed
+Prodcut image and product descriptions.
+```{r}
+
+Pending_orders_in <- chaindata %>%
+  filter(Order.Country == "India", Order.Status == "PENDING")
+```
+Filtered the pending orders in INDIA as assigned new tables as Pending_orders_in
+```{r}
+Nike_sales <- chaindata %>%
+  filter(grepl("Nike|nike", Product.Name))
+  
+```
+
