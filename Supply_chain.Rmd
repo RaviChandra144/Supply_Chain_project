@@ -21,4 +21,4 @@ Nike_sales <- chaindata %>%
   filter(grepl("Nike|nike", Product.Name))
   
 ```
-
+#writing the code
